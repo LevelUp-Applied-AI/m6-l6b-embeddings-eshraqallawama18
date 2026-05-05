@@ -3,16 +3,27 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
-import utlis
-from utlis import load_glove
+import numpy as np
+
+
 
 # ======================
 # 1. Load GloVe
 # ======================
 
 
+def load_glove(path):
+    embeddings = {}
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            values = line.split()
+            word = values[0]
+            vector = np.array(values[1:], dtype=float)
+            embeddings[word] = vector
+    return embeddings
+
+
 glove = load_glove("data/glove_50k_50d.txt")
-# print(len(glove))
 
 # ======================
 # 2. Cosine Similarity
