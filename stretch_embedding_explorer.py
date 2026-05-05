@@ -47,7 +47,7 @@ def get_similar_words(word, glove, top_n=40):
 
 # ======================
 # 3. Build categories
-# ======================
+# ================== ===
 categories = {
     "sports": get_similar_words("football", glove, 40),
     "technology": get_similar_words("computer", glove, 40),
